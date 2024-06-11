@@ -121,8 +121,13 @@ input::placeholder{
     color: hsl(0, 0%, 77%);
 }
 
-#username, #userCardNumber, .btn{
+#fullName, #userCardNumber, .btn{
     width: 350px;
+}
+
+.error-message{
+    color: red;
+    text-transform: none;
 }
 
 .bottomForm{

@@ -17,40 +17,40 @@
     <div class="cards">
       <div class="front-card">
         <img src="images/card-logo.svg" alt="card logo" id="cardLogo">
-        <p id="cardNumber">0000 0000 0000 0000</p>
+        <p id="cardNumber" class="frontCardNumber">0000 0000 0000 0000</p>
 
         <div class="bottomCard">
-          <p id="userName">Jane Appleseed</p>
-          <p id="userExpDate">00/00</p>
+          <p id="userName" class="frontCardUsername">Jane Appleseed</p>
+          <p id="userExpDate"><span class="frontCardMonth">00</span>/<span class="frontCardYear">00</span></p>
         </div>
       </div>
       <div class="back-card">
-        <p id="userCVC">000</p>
+        <p id="userCVC" class="backCardCVC">000</p>
       </div>
     </div>
 
 <!-- Right section -->
   <div class="info">
    <form action="#">
-      <label for="username">cardholder name <br>
-    <input type="text" name="form" id="username" class="username" placeholder="e.g. Jane Appleseed"></label><br><br>
+      <label for="fullName">cardholder name <br>
+    <input type="text" name="form" id="fullName" class="form--username" placeholder="e.g. Jane Appleseed"></label><br><br>
     <!-- <p>Wrong format numbers only</p> -->
 
   <label for="userCardNumber">card number<br>
-  <input type="text" name="form" id="userCardNumber" class="userCardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="15"></label><br><br>
+  <input type="text" name="form" id="userCardNumber" class="form--userCardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="15"></label><br><br>
 
     <div class="bottomForm">
        <div class="date">
       <label for="expDate">exp. date (mm/yy)<br>
-        <input type="text" name="month" class="expDate month" placeholder="MM" maxlength="2" class="error">
-        <input type="text" name="year" class="expDate year" placeholder="YY" maxlength="2">
+        <input type="text" name="month" class="expDate form--month" placeholder="MM" maxlength="2" class="error">
+        <input type="text" name="year" class="expDate form--year" placeholder="YY" maxlength="2">
       </label>
         <!-- <p>Can't be blank</p> -->
       </div>
 
       <div class="cvc">
         <label for="cvc">cvc<br>
-          <input type="text" name="CVC" id="cvc" placeholder="e.g. 123" maxlength="3"> 
+          <input type="text" name="CVC" id="cvc" class="form--cvc" placeholder="e.g. 123" maxlength="3"> 
           </label><br><br>
       </div> 
     </div>
