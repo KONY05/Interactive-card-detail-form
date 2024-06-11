@@ -110,9 +110,11 @@ input{
     border: 1px solid hsl(0, 0%, 77%);
     padding: 10px;
     outline: none;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    margin-top: 8px;
     font-weight: 600;
     /* color: ; */
+    cursor: pointer;
 }
 
 input::placeholder{
