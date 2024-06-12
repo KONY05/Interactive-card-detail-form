@@ -193,6 +193,8 @@ function formValidation() {
      init();
 }
 
+// to immediately focus on the input element
+userName.focus();
 
 // Event listener for when user starts typing
 userName.addEventListener('input', formatUsername);
@@ -215,5 +217,3 @@ form.addEventListener('keyup', function (e) {
         formValidation();
     }
 })
-
-btn
