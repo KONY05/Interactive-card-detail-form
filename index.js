@@ -10,9 +10,15 @@ const month = document.querySelector('.form--month');
 const year = document.querySelector('.form--year');
 const cvc = document.querySelector('.form--cvc');
 
+const form = [userName, cardNumber, month, year, cvc];
+
 const btn = document.querySelector('.btn');
 const input = document.querySelectorAll('input');
-const label = document.querySelectorAll('label')
+const label = document.querySelectorAll('label');
+
+const CARD_NUM_LEN = 19;
+const DATE_NUM_LEN = 2;
+const CVC_NUM_LEN = 3;
 
 
 
@@ -35,42 +41,41 @@ function removeErrorMessage(input) {
     }
 }
 
-function checkIfNumber(el) {
-    // remove error message if present
-    removeErrorMessage(el);
-    // check if element value is a string/not a number
-    if (!+el.value) {
-        // if current element does not contain the error class display error message
-        return displayErr(el, `${el.value.trim() === ''? "Can't be blank" : 'Wrong format, numbers only'}`);
-    }
-    
+function checkIfNumber(el, len) {
     // check if element value is positive
-    if (+el.value) {
+    if (el.value.length === len) {
         // remove error class and error message if present
+        removeErrorMessage(el);
         return el.classList.remove('error');
     };
+
+    // check if element value is a string/not a number
+    if (el.value.length < len) {
+        // if current element does not contain the error class display error message
+        removeErrorMessage(el);
+        return displayErr(el, `${el.value.trim() === ''? "Can't be blank" : 'Wrong format, numbers only'}`);
+    }
 }
 
 function checkIfString(el) {
     // remove error message if present
-    removeErrorMessage(el)
     // check if element value is a number or is empty
-    if (Number.parseInt(el.value) || el.value.trim() === '') return displayErr(el, 'Please input your full name');
+    if (Number.parseInt(el.value) || el.value.trim() === '') {
+        removeErrorMessage(el);
+        return displayErr(el, 'Please input your full name')
+    };
 
     // check if element value is a string
-    if (typeof(el.value) === 'string')
-        return el.classList.remove('error');
-}
-
-function init(){
-    input.forEach(el => {
-        el.value = '';
-    })
+    const pattern = /^[A-Za-z]+ [A-Za-z]+$/;
+    if (pattern.test(el.value)){
+        removeErrorMessage(el);
+        return el.classList.remove('error');}
 }
 
 function renderCard(el, target) {
-    if (el.value.trim === '' || el.value.length < 0) return;
+    if (el.value.trim() === '' || el.value.length < 0) return;
 
+        el.value.trim();
         target.textContent = '';
         const text1 = el.value.slice(0, 1).toUpperCase();
         const text2 = el.value.slice(1).toLowerCase();
@@ -82,6 +87,39 @@ function checkForErrorClass(el) {
     if(el.classList.contains('error')) console.log('hello');
 }
 
+function formatCreditCardNumber() {
+    let value = this.value.replace(/\D/g, '');
+
+    value = value.match(/.{1,4}/g)?.join(' ') || '';
+
+    this.value = value;
+}
+
+function formatNumbers() {
+    let value = this.value.replace(/\D/g, '');
+    this.value = value;
+}
+
+function formatUsername() {
+    let value = this.value.replace(/^[\s]/g, '');
+    value = value.replace(/[0-9]/g, '')
+    this.value = value;
+}
+
+function checkError() {
+    let containsError = false;
+    form.forEach(el => {
+        if (el.classList.contains('error'))
+            containsError = true;
+        })
+        return containsError;
+}
+
+function init(){
+    input.forEach(el => {
+        el.value = '';
+    })
+}
 
 // Event listener that responds when user clicks and calls functions inside it
 btn.addEventListener('click', function (e) {
@@ -89,23 +127,25 @@ btn.addEventListener('click', function (e) {
 
     // Error handling function calls
     checkIfString(userName);
-    checkIfNumber(cardNumber);
-    checkIfNumber(cvc);
-    [month, year].forEach(el => checkIfNumber(el))
-
-    const i = [...input];
-    console.log(i);
-    i.every(checkForErrorClass())
-   
-
-    // Display texts from form on the cards
-
-    // renderCard(userName, cardName);
-    // renderCard(cardNumber, frontCardNumber);
-    // renderCard(month, cardMonth);
-    // renderCard(year, cardYear);
-    // renderCard(cvc, cardCVC);
-
-    // init();
+    checkIfNumber(cardNumber, CARD_NUM_LEN);
+    checkIfNumber(cvc, CVC_NUM_LEN);
+    [month, year].forEach(el => checkIfNumber(el, DATE_NUM_LEN));
     
+    // Display texts from form on the cards
+    if (checkError() === true) return; 
+        renderCard(userName, cardName);
+        renderCard(cardNumber, frontCardNumber);
+        renderCard(month, cardMonth);
+        renderCard(year, cardYear);
+        renderCard(cvc, cardCVC);
+
+        init();
 })
+
+
+// Event listener for when user starts typing
+cardNumber.addEventListener('input', formatCreditCardNumber);
+month.addEventListener('input', formatNumbers);
+year.addEventListener('input', formatNumbers);
+cvc.addEventListener('input', formatNumbers);
+userName.addEventListener('input', formatUsername);
