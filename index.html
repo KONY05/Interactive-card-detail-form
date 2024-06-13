@@ -11,6 +11,7 @@
 
   <title>Frontend Mentor | Interactive card details form</title>
 </head>
+
 <body>
   <div class="container">
     <!-- Left section -->
@@ -21,7 +22,7 @@
 
         <div class="bottomCard">
           <p id="userName" class="frontCardUsername">Jane Appleseed</p>
-          <p id="userExpDate"><span class="frontCardMonth">00</span>/<span class="frontCardYear">00</span></p>
+          <p id="userExpDate"><span class="frontCardMonth cardMonth">00</span>/<span class="frontCardYear cardYear">00</span></p>
         </div>
       </div>
       <div class="back-card">
@@ -33,39 +34,39 @@
   <div class="info">
    <form action="#" class="form-container">
       <label for="fullName">cardholder name <br>
-    <input type="text" name="form" id="fullName" class="form--username" placeholder="e.g. Jane Appleseed" required></label><br><br>
-    <!-- <p>Wrong format numbers only</p> -->
+      <input type="text" name="form" id="fullName" class="form--username" placeholder="e.g. Jane Appleseed" required></label><br><br>
+      <!-- <p>Wrong format numbers only</p> -->
 
-  <label for="userCardNumber">card number<br>
-  <input type="text" name="form" id="userCardNumber" class="form--userCardNumber" placeholder="e.g. 1234 5678 9123 0000" minlength="19" maxlength="19" data-length="19" required></label><br><br>
+      <label for="userCardNumber">card number<br>
+      <input type="text" name="form" id="userCardNumber" class="form--userCardNumber" placeholder="e.g. 1234 5678 9123 0000" minlength="19"     maxlength="19" data-length="19" required></label><br><br>
 
-    <div class="bottomForm">
-       <div class="date">
-      <label for="expDate">exp. date (mm/yy)<br>
-        <input type="text" name="month" class="expDate form--month" placeholder="MM" maxlength="2" minlength="2"data-length="2" required>
-        <input type="text" name="year" class="expDate form--year" placeholder="YY" maxlength="2" minlength="2" data-length="2" required>
-      </label>
-        <!-- <p>Can't be blank</p> -->
-      </div>
+      <div class="bottomForm">
+        <div class="date">
+          <label for="expDate">exp. date (mm/yy)<br>
+          <input type="text" name="month" class="expDate form--month" placeholder="MM" maxlength="2" minlength="2"data-length="2" required>
+          <input type="text" name="year" class="expDate form--year" placeholder="YY" maxlength="2" minlength="2" data-length="2" required>
+          </label>
+          <!-- <p>Can't be blank</p> -->
+        </div>
 
-      <div class="cvc">
-        <label for="cvc">cvc<br>
+        <div class="cvc">
+          <label for="cvc">cvc<br>
           <input type="text" name="CVC" id="cvc" class="form--cvc" placeholder="e.g. 123" minlength="3" maxlength="3" data-length="3" required> 
           </label><br><br>
-      </div> 
-    </div>
+        </div> 
+      </div>
 
-    <!-- <div class="complete">
-      <img src="images/icon-complete.svg" alt="complete" class="complete_img">
-      <p class="complete_head">thank you!</p>
-      <p class="complete_p">We've added your card details</p>
-      <button class="btn btn-reload">confirm</button>
-    </div> -->
+      <!-- <div class="complete">
+        <img src="images/icon-complete.svg" alt="complete" class="complete_img">
+        <p class="complete_head">thank you!</p>
+        <p class="complete_p">We've added your card details</p>
+        <button class="btn btn-reload">confirm</button>
+      </div> -->
 
     <button class="btn">confirm</button>
     </form>
-</div>
+  </div>
 
-</div>
+  </div>
 </body>
 </html>

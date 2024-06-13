@@ -7,11 +7,9 @@
     padding: 0px;
     font-family: 'Space Grotesk';
     font-weight: 500;
-    /* font-size: 18px; */
 }
-    
+
 .container{
-    /* background-color: grey; */
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -20,10 +18,8 @@
 /* LEFT SECTION */
 /* CARDS */
 .cards{
-    /* background-color: yellow; */
     position: relative;
-    height: 100vh;
-    /* width: 500px; */
+    height: 100%;
     background-image: url(images/bg-main-desktop.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,15 +29,9 @@
 
 .front-card{
     position: absolute;
-    /* height: 245px; */
     height: auto;
-    /* width: 100%; */
-    /* width: 447px; */
-    /* min-width: auto; */
     width: 400px;
     border-radius: 15px;
-    /* height: 245px; */
-    /* background-color: green; */
     z-index: 10;
     background-image: url(images/bg-card-front.png);
     background-size: cover;
@@ -49,11 +39,9 @@
     left: 10rem;
     top: 6rem;
     padding: 30px;
-    /* border: solid black; */
 }
 
 #cardNumber{
-    /* border: solid black; */
     letter-spacing: 5px;
     font-size: 20px;
     margin-top: 50px;
@@ -61,7 +49,6 @@
 
 .bottomCard{
     margin-top: 30px;
-    /* border: solid yellow; */
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -71,8 +58,6 @@
     position: absolute;
     height: 220px;
     width: 400px;
-    border-radius: 15px;
-    /* background-color: green; */
     z-index: 10;
     background-image: url(images/bg-card-back.png);
     background-repeat: no-repeat;
@@ -83,7 +68,6 @@
 
 #userCVC{
     display: flex;
-    /* align-items: center; */
     margin-top: 6rem;
     margin-right: 50px;
     justify-content: end;
@@ -91,12 +75,14 @@
 
 /* RIGHT SECTION */
 .info{
-    /* border: solid black; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* column-gap: 50px; */
+}
+
+form{
+    margin-left: 100px;
 }
 
 label{
@@ -113,7 +99,6 @@ input{
     margin-bottom: 5px;
     margin-top: 8px;
     font-weight: 600;
-    /* color: ; */
     cursor: pointer;
 }
 
@@ -123,11 +108,6 @@ input::placeholder{
 
 #fullName, #userCardNumber, .btn{
     width: 350px;
-}
-
-.error-message{
-    color: red;
-    text-transform: none;
 }
 
 .bottomForm{
@@ -156,6 +136,11 @@ input::placeholder{
     border-width: 1px;
 }
 
+.error-message{
+    color: red;
+    text-transform: none;
+}
+
 input:focus{
     border: 2px solid transparent;
     border-radius: 5px;
@@ -163,9 +148,6 @@ input:focus{
 }
 
 /* COMPLETED SECTION */
-/* .hidden{
-    display: none;
-} */
 
 .complete{
     display: flex;
@@ -185,4 +167,401 @@ input:focus{
 .complete_p{
     color: hsl(279, 6%, 55%);
     margin-bottom: 20px;
+}
+
+
+/* MEDIA QUERY */
+@media (max-width: 1200px){
+
+    .front-card, .back-card{
+        width: 350px;
+        height: 220px;
+        background-size: contain;
+        border-radius: 0px;
+    }
+
+    .front-card{
+        top: 3.5rem;
+        left: 6.5rem;
+        padding: 20px;
+    }
+
+    .front-card img{
+        width: 25%;
+    }
+
+    #cardNumber{
+        font-size: 17px;
+        font-weight: 700;
+        margin-top: 35px;
+    }
+
+    .back-card{
+        top: 17rem;
+        left: 11rem;
+    }
+
+    #userCVC{
+        margin-top: 5.3rem;
+    }
+}
+
+@media (max-width: 1015px){
+    
+    .front-card, .back-card{
+        width: 320px;
+    }
+
+    .front-card{
+        top: 3.5rem;
+        left: 5rem;
+        padding: 15px;
+    }
+
+    .front-card img{
+        width: 20%;
+    }
+
+    .back-card{
+        top: 16rem;
+        left: 9.5rem;
+    }
+
+    #userCVC{
+        margin-top: 4.7rem;
+    }
+}
+
+@media (max-width: 930px){
+
+    .front-card, .back-card{
+        width: 310px;
+    }
+
+    .front-card{
+        height:fit-content;
+    }
+
+    .front-card img{
+        width: 18%;
+    }
+
+    #cardNumber{
+        font-size: 15.5px;
+        margin-top: 32px;
+    }
+
+    #userExpDate{
+        margin-right: 15px;
+    }
+
+    .back-card{
+        left: 8.5rem;
+    }
+
+    #userCVC{
+        margin-top: 4.5rem;
+    }
+
+    #fullName, #userCardNumber, .btn{
+        width: 300px;
+    }
+
+    #cvc{
+        width: 140.5px;
+    }
+}
+
+@media (max-width: 857px){
+
+    .front-card{
+        left: 4rem;
+    }
+
+    .back-card{
+        left: 7rem;
+    }
+}
+
+@media (max-width: 820px){
+
+    form{
+        margin-left: 125px;
+    }
+
+    #fullName, #userCardNumber, .btn{
+        width: 245px;
+    }
+
+    #cvc{
+        width: 85.5px;
+    }
+}
+
+@media (max-width: 756px){
+
+    .front-card, .back-card{
+        width: 280px;
+    }
+
+    .front-card{
+        left: 3.2rem;
+    }
+
+    .back-card{
+        top: 14.5rem;
+        left: 6.4rem;
+    }
+
+    .bottomCard, #cardNumber, #userCVC{
+        font-size: 13.8px;
+    }
+
+    #userCVC{
+        margin-top: 4.2rem;
+        margin-right: 40px;
+    }
+}
+
+@media (max-width: 688px){
+
+    .front-card, .back-card{
+        width: 250px;
+    }
+    
+    .front-card{
+        padding-top: 12px;
+        top: 4.5rem;
+    }
+
+    .front-card img{
+        width: 15%;
+    }
+
+    #userExpDate{
+        margin-right: 0px;
+    }
+
+    #userCVC{
+        font-size: 13px;
+        margin-top: 3.7rem;
+    }
+
+    .bottomCard, #cardNumber{
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 650px){
+    
+    .front-card{
+        left: 2.5rem;
+    }
+
+    .back-card{
+        top: 14.5rem;
+        left: 5.3rem;
+    }
+}
+
+@media (max-width: 622px){
+
+    .front-card{
+        left: 2rem;
+    }
+
+    .back-card{
+        top: 14.5rem;
+        left: 4rem;
+    }
+}
+
+@media (max-width: 590px){
+
+    .front-card, .back-card{
+        width: 220px;
+    }
+
+    .front-card{
+        top: 5.2rem;
+        left: 2.6rem;
+    }
+
+    .back-card{
+        left: 5rem;
+    }
+
+    .bottomCard, #userCVC{
+        font-size: 11.8px;
+    }
+
+    #cardNumber{
+        letter-spacing: 3px;
+        font-size: 11.4px;
+        margin-bottom: -15px;
+    }
+
+    #userCVC{
+        margin-top: 3.2rem;
+    }
+
+    form{
+        margin-right: 20px;
+    }
+}
+
+
+/* MOBILE VIEW MEDIA QUERY */
+@media (max-width: 580px){
+    
+    .container{
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+    }
+
+    .cards{
+        background-image: url(images/bg-main-mobile.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 250px;
+        height: 100%;
+    }
+
+    .front-card, .back-card{
+        top: 0rem;
+        width: 300px;
+        height: 165px;
+        background-color: transparent;
+    }
+
+    .front-card{
+        z-index: 100;
+        top: 8.3rem;
+        left: 5rem;
+    }
+
+    .front-card img{
+        width: 20%;
+    }
+
+    #cardNumber{
+        font-size: 18px;
+        margin-top: 40px;
+        font-weight: 400;
+    }
+    
+    #userName, #userCVC, .cardMonth, .cardYear, .bottomCard p{
+        font-weight: 300;
+    }
+
+    #userName{
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    .bottomCard, #userCVC{
+        font-size: 11px;
+    }
+
+    .bottomCard{
+        margin-top: 36px;
+    }
+
+    .back-card{
+        top: 2.5rem;
+        left: 8.2rem;
+    }
+
+    #userCVC{
+        margin-top: 4.6rem;
+        font-weight: 300;
+    }
+
+    form{
+        margin: 0;
+        margin-top: 80px;
+        margin-bottom: 30px;
+    }
+
+    #fullName, #userCardNumber, .btn{
+        width: 350px;
+    }
+
+    #cvc{
+        width: 190px;
+    }
+
+    label{
+        font-weight: 700;
+    }
+}
+
+@media (max-width: 420px){
+    
+    .front-card, .back-card{
+        width: 275px;
+    }
+
+    .front-card{
+        left: 1.5rem;
+    }
+
+    .front-card img{
+        width: 20%;
+    }
+
+    #cardNumber{
+        font-size: 16px;
+    }
+
+    .back-card{
+        top: 3rem;
+        left: 4rem;
+    }
+
+    #userCVC{
+        margin-top: 4.2rem;
+    }
+
+    #fullName, #userCardNumber, .btn{
+        width: 300px;
+    }
+
+    #cvc{
+        width: 140px;
+    }
+}
+
+@media (max-width: 354px){
+
+    .front-card, .back-card{
+        width: 250px;
+    }
+
+    .front-card{
+        left: 1rem;
+    }
+
+    #cardNumber{
+        margin-top: 33px;
+        font-size: 14px;
+    }
+
+    .back-card{
+        top: 3.5rem;
+        left: 3rem;
+    }
+
+    #userCVC{
+        margin-top: 3.8rem;
+    }
+
+    #fullName, #userCardNumber, .btn{
+        width: 260px;
+    }
+
+    #cvc{
+        width: 101px;
+    }
 }

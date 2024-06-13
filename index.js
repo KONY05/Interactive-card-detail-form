@@ -1,3 +1,5 @@
+'use strict';
+
 const cardName = document.querySelector('.frontCardUsername');
 const frontCardNumber = document.querySelector('.frontCardNumber');
 const cardMonth = document.querySelector('.frontCardMonth');
@@ -117,13 +119,11 @@ function renderCard(el, target) {
         text = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
         const text2 = name[1].slice(0, 1).toUpperCase() + name[1].slice(1).toLowerCase();;
         
-        // console.log(name, name[0], name[1]);
-        // console.log(text, text2);
         fullname = `${text} ${text2}`;
-        console.log(fullname);
         return target.textContent = fullname;   
     }
 
+    text = text.slice(0, 1).toUpperCase() + text.slice(1).toLowerCase();
     target.textContent = text;
 }
 
